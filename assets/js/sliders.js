@@ -51,9 +51,12 @@
 						$('html, body').animate({scrollTop:$("."+o.wrap).offset().top - 20}, 'slow');
 						$("."+o.wrap).hide();
 						//click to close
-						$('.close').click(function(){
+						$('.close').click(function(e){
+							 e.preventDefault(); //This will stop the jumping
+							$('html, body').animate({scrollTop:$('body').offset().top}, 'slow');
 							$(this).closest("."+o.overlay).fadeOut();
 							$("."+o.wrap).show();
+
 						});
 
 						//click to next slide
